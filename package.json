@@ -1,0 +1,37 @@
+{
+  "name": "@clawnify/open-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler d1 execute open-video-db --local --file=src/server/schema.sql && concurrently -n studio,api -c cyan,green \"npx remotion studio --port 5173\" \"wrangler dev --port 8787\"",
+    "build": "npx remotion bundle --out-dir dist",
+    "render": "npx remotion render",
+    "dev:api": "wrangler dev --port 8787",
+    "dev:studio": "npx remotion studio"
+  },
+  "dependencies": {
+    "@cloudflare/puppeteer": "^1.1.0",
+    "@hono/zod-openapi": "^0.18.0",
+    "@remotion/cli": "4.0.448",
+    "@remotion/player": "4.0.448",
+    "@remotion/zod-types": "4.0.448",
+    "hono": "^4.6.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "4.0.448",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "concurrently": "^9.0.0",
+    "typescript": "^5.7.0",
+    "wrangler": "^4.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
+  }
+}

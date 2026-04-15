@@ -1,0 +1,24 @@
+name = "open-video"
+main = "src/server/index.ts"
+compatibility_date = "2026-04-15"
+compatibility_flags = ["nodejs_compat"]
+
+[browser]
+binding = "BROWSER"
+
+[[worker_loaders]]
+binding = "LOADER"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "open-video-db"
+database_id = "local"
+
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "open-video-uploads"
